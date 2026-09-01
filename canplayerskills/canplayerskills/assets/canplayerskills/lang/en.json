@@ -1,0 +1,47 @@
+{
+    "skill-prospecting": "Prospecting",
+    "skill-butchering": "Butchering",
+    "skill-agriculture": "Agriculture",
+    "skill-smithing": "General smithing",
+    "skill-toolsmithing": "Toolsmithing",
+    "skill-weaponsmithing": "Weaponsmithing",
+    "skill-armorsmithing": "Armorsmithing",
+
+    "smithbonus-durability": "Well forged: +{0}% durability",
+    "smithbonus-durability-damage": "Well forged: +{0}% durability and damage",
+
+    "skill-rank-novice": "Novice",
+    "skill-rank-adept": "Adept",
+    "skill-rank-expert": "Expert",
+    "skill-rank-master": "Master",
+
+    "skill-rankup": "Your {0} skill is now {1}",
+    "charactertab-skills": "Skills",
+    "skill-line": "{0}: {1} ({2}%), xp {3}",
+
+    "command-skill-desc": "Show your skills",
+    "command-show-desc": "Show another player's skills",
+    "command-give-desc": "Give skill points to a player",
+    "command-reload-desc": "Re-read the admin config and push it to everyone online",
+    "command-restore-desc": "Restore a player's skills from the backup file",
+    "command-backup-desc": "Write a skill backup snapshot right now",
+
+    "msg-player-only": "This command can only be used by a player",
+    "msg-player-not-found": "Player not found",
+    "msg-unknown-skill": "Unknown skill: {0}",
+    "msg-skills-of": "Skills of {0}:",
+    "msg-skill-given": "{0} +{1} for {2}",
+    "msg-reloaded": "Config reloaded, {0} skills active",
+    "msg-no-backup": "No backup entry for {0}",
+    "msg-restored": "Restored skills of {0} from the snapshot of {1}",
+    "msg-backed-up": "Skill snapshot written to {0}",
+
+    "propick-nothing": "Found nothing of interest",
+    "propick-found-exact": "{0}, right here",
+    "propick-found-exact-graded": "{0}, right here ({1})",
+
+    "oregrade-poor": "poor",
+    "oregrade-medium": "medium",
+    "oregrade-rich": "rich",
+    "oregrade-bountiful": "bountiful"
+}

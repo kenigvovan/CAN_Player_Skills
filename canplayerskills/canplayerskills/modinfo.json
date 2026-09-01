@@ -1,0 +1,14 @@
+{
+  "$schema": "https://moddbcdn.vintagestory.at/schema/modinfo.latest.json",
+  "type": "Code",
+  "modid": "canplayerskills",
+  "name": "canplayerskills",
+  "authors": [
+    "KenigVovan"
+  ],
+  "description": "Brings TFC-style skills to Vintage Story",
+  "version": "1.0.1",
+  "dependencies": {
+    "game": ""
+  }
+}

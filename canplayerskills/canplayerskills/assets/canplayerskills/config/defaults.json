@@ -1,0 +1,76 @@
+{
+  "skills": {
+    "prospecting": {
+      "rate": 1500,
+      "xpPerAction": 1,
+      "stats": {}
+    },
+    "butchering": {
+      "rate": 100,
+      "xpPerAction": 1,
+      "stats": {
+        "animalLootDropRate": [ 0.01, 1.01 ],
+        "animalHarvestingTime": [ 1.0, 0.5 ]
+      }
+    },
+    "agriculture": {
+      "rate": 300,
+      "xpPerAction": 1,
+      "stats": {}
+    },
+    "smithing": {
+      "rate": 250,
+      "xpPerAction": 1,
+      "stats": {}
+    },
+    "toolsmithing": {
+      "rate": 100,
+      "xpPerAction": 1,
+      "stats": {}
+    },
+    "weaponsmithing": {
+      "rate": 100,
+      "xpPerAction": 1,
+      "stats": {}
+    },
+    "armorsmithing": {
+      "rate": 100,
+      "xpPerAction": 1,
+      "stats": {}
+    }
+  },
+
+  "prospecting": {
+    "searchRadius": 12,
+    "cooldownMs": 1000
+  },
+
+  "backup": {
+    "enabled": true,
+    "intervalMinutes": 15
+  },
+
+  "classes": {
+    "collapseToNeutral": false,
+    "neutralCode": "neutral"
+  },
+
+  "smithing": {
+    "default": { "xp": 1, "skills": [ "smithing" ] },
+
+    "byOutput": {
+      "game:helvehammer": { "xp": 8, "skills": [ "smithing", "toolsmithing" ] },
+      "game:anvil-*": { "xp": 8, "skills": [ "smithing", "toolsmithing" ] },
+
+      "game:blade-*": { "xp": 3, "skills": [ "smithing", "weaponsmithing" ] },
+      "game:spearhead-*": { "xp": 3, "skills": [ "smithing", "weaponsmithing" ] },
+      "game:arrowhead-*": { "xp": 1, "skills": [ "smithing", "weaponsmithing" ] },
+
+      "game:*-plate": { "xp": 4, "skills": [ "smithing", "armorsmithing" ] },
+      "game:scaleplate-*": { "xp": 4, "skills": [ "smithing", "armorsmithing" ] },
+
+      "game:*head-*": { "xp": 3, "skills": [ "smithing", "toolsmithing" ] },
+      "game:*ingot*": { "xp": 1, "skills": [ "smithing" ] }
+    }
+  }
+}

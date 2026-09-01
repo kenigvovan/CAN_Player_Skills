@@ -1,0 +1,47 @@
+{
+    "skill-prospecting": "Геологоразведка",
+    "skill-butchering": "Разделка",
+    "skill-agriculture": "Земледелие",
+    "skill-smithing": "Общее кузнечное дело",
+    "skill-toolsmithing": "Ковка инструментов",
+    "skill-weaponsmithing": "Ковка оружия",
+    "skill-armorsmithing": "Ковка брони",
+
+    "smithbonus-durability": "Хорошая ковка: +{0}% прочности",
+    "smithbonus-durability-damage": "Хорошая ковка: +{0}% прочности и урона",
+
+    "skill-rank-novice": "Новичок",
+    "skill-rank-adept": "Умелец",
+    "skill-rank-expert": "Эксперт",
+    "skill-rank-master": "Мастер",
+
+    "skill-rankup": "Ваш навык «{0}» теперь на уровне «{1}»",
+    "charactertab-skills": "Навыки",
+    "skill-line": "{0}: {1} ({2}%), опыт {3}",
+
+    "command-skill-desc": "Показать свои навыки",
+    "command-show-desc": "Показать навыки другого игрока",
+    "command-give-desc": "Выдать игроку очки навыка",
+    "command-reload-desc": "Перечитать конфиг и разослать его всем в сети",
+    "command-restore-desc": "Восстановить навыки игрока из резервной копии",
+    "command-backup-desc": "Сделать снимок навыков прямо сейчас",
+
+    "msg-player-only": "Команда доступна только игроку",
+    "msg-player-not-found": "Игрок не найден",
+    "msg-unknown-skill": "Неизвестный навык: {0}",
+    "msg-skills-of": "Навыки игрока {0}:",
+    "msg-skill-given": "{0} +{1} игроку {2}",
+    "msg-reloaded": "Конфиг перечитан, активно навыков: {0}",
+    "msg-no-backup": "В резервной копии нет записи для {0}",
+    "msg-restored": "Навыки игрока {0} восстановлены из снимка от {1}",
+    "msg-backed-up": "Снимок навыков записан в {0}",
+
+    "propick-nothing": "Ничего интересного не найдено",
+    "propick-found-exact": "{0}, прямо здесь",
+    "propick-found-exact-graded": "{0}, прямо здесь ({1})",
+
+    "oregrade-poor": "бедная",
+    "oregrade-medium": "средняя",
+    "oregrade-rich": "богатая",
+    "oregrade-bountiful": "обильная"
+}
