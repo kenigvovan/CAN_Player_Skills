@@ -23,6 +23,7 @@ namespace canplayerskills
 
         private Harmony? harmony;
         private SkillsTab? skillsTab;
+        private ICoreAPI? api;
         private ICoreServerAPI? sapi;
         private ICoreClientAPI? capi;
 
@@ -32,6 +33,8 @@ namespace canplayerskills
 
         public override void Start(ICoreAPI api)
         {
+            this.api = api;
+
             api.Network.RegisterChannel(SkillsConfigPacket.ChannelName)
                 .RegisterMessageType<SkillsConfigPacket>();
 
@@ -54,7 +57,7 @@ namespace canplayerskills
         public override void AssetsFinalize(ICoreAPI api)
         {
             // defaults first, then the admin config; must run after assets are loaded
-            Registry.Apply(SkillRegistry.LoadDefaults(api));
+            ApplyConfig(SkillRegistry.LoadDefaults(api));
 
             if (api is ICoreServerAPI serverApi)
             {
@@ -79,6 +82,9 @@ namespace canplayerskills
         {
             sapi = api;
 
+            // On join, not on now-playing: a new player reaches now-playing only after closing the
+            // character dialog, which the client builds from this config's class list.
+            api.Event.PlayerJoin += SendConfigTo;
             api.Event.PlayerNowPlaying += OnPlayerNowPlaying;
             new AgricultureHandler(api, this);
             RegisterCommands(api);
@@ -108,7 +114,31 @@ namespace canplayerskills
                 return;
             }
 
-            Registry.Apply(saved);
+            ApplyConfig(saved);
+        }
+
+        /// <summary>
+        /// Installs a config, then lets every loaded mod named in a skill's StatOverrides replace the
+        /// ranges it balances itself. Butchering is the case this exists for: it halves field
+        /// harvesting and pays the rest out at its own workstations, both reading animalLootDropRate,
+        /// so scaling that stat here as well would multiply the two reductions.
+        /// </summary>
+        private void ApplyConfig(SkillsConfig config)
+        {
+            Registry.Apply(config);
+
+            foreach (SkillDef def in Registry.All)
+            {
+                foreach (KeyValuePair<string, Dictionary<string, float[]>> mod in def.StatOverrides)
+                {
+                    if (api?.ModLoader.IsModEnabled(mod.Key) != true) continue;
+
+                    foreach (KeyValuePair<string, float[]> stat in mod.Value)
+                    {
+                        def.Stats[stat.Key] = stat.Value;
+                    }
+                }
+            }
         }
 
         private void RegisterBackup(ICoreServerAPI api)
@@ -124,7 +154,6 @@ namespace canplayerskills
 
         private void OnPlayerNowPlaying(IServerPlayer byPlayer)
         {
-            SendConfigTo(byPlayer);
             MigrateCharacterClass(byPlayer);
             ApplyStats(byPlayer.Entity);
         }
@@ -163,7 +192,7 @@ namespace canplayerskills
             SkillsConfig? received = SkillRegistry.FromJson(packet.Json);
             if (received == null) return;
 
-            Registry.Apply(received);
+            ApplyConfig(received);
 
             // rebuild the class list under the server config
             CharacterSystem? charSys = capi?.ModLoader.GetModSystem<CharacterSystem>();

@@ -17,7 +17,8 @@ Ported logic:
 - Smithing bonus (crafter's skill stamped on the finished item, read back as extra max durability
   and attack power) — from `com.bioxx.tfc.api.Crafting.AnvilManager`, `TEAnvil` and `ItemTerraTool`
   → `src/Patches/SmithingPatches.cs`
-- Butchering yield scaling by skill (`weight * (multiplier + 0.01)`) — from
-  `com.bioxx.tfc.Handlers.EntityLivingHandler` → `assets/canplayerskills/config/skills.json`
+- Butchering yield scaling by skill (TFC: `weight * (multiplier + 0.01)`; the range is widened here
+  because Vintage Story rounds small drop counts down to nothing) — from
+  `com.bioxx.tfc.Handlers.EntityLivingHandler` → `assets/canplayerskills/config/defaults.json`
 
 The code is a reimplementation in C# against the Vintage Story API, not a copy of the Java source.

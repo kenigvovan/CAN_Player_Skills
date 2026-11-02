@@ -9,8 +9,13 @@
       "rate": 100,
       "xpPerAction": 1,
       "stats": {
-        "animalLootDropRate": [ 0.01, 1.01 ],
+        "animalLootDropRate": [ 0.5, 1.4 ],
         "animalHarvestingTime": [ 1.0, 0.5 ]
+      },
+      "statOverrides": {
+        "butchering": {
+          "animalLootDropRate": [ 1.0, 1.5 ]
+        }
       }
     },
     "agriculture": {
